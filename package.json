@@ -14,8 +14,12 @@
   },
   "dependencies": {
     "gatsby": "^5.13.7",
+    "gatsby-plugin-typography": "^5.13.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-typography": "^0.16.23",
+    "typography": "^0.16.24",
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "@types/typography": "^0.16.8"
   }
 }
