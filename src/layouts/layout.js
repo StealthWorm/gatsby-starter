@@ -1,42 +1,85 @@
 import React from 'react';
-import './styles.css';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { css } from '@emotion/react';
+import { rhythm } from '../utils/typography';
 
 export default function Layout({ children }) {
+  // usado para definir a consulta do graphql que queremos usar
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  );
+
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          padding: '10px',
-        }}
+    <div
+      css={css`
+        display: flex;
+        max-width: 700px;
+        margin: 0 auto;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        padding: ${rhythm(2)};
+      `}
+    >
+      <header
+        css={css`
+          display: flex;
+          background: #f1f2f3;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: ${rhythm(2)};
+        `}
       >
-        <h3
-          style={{
-            margin: 0,
-            display: 'flex',
-            backgroundColor: 'lightblue',
-            flex: '0 0 70%',
-          }}
-        >
-          <Link to="/about">My Site</Link>
-        </h3>
+        <Link to="/">
+          <h3
+            css={css`
+              display: inline-block;
+              align-items: center;
+              justify-content: center;
+              font-style: normal;
+              font-weight: bold;
+              width: 100%;
+              text-decoration: none;
+            `}
+          >
+            {data.site.siteMetadata.title}
+          </h3>
+        </Link>
         <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flex: '0 0 30%',
-            justifyContent: 'flex-end',
-            gap: '1rem',
-            backgroundColor: 'lightcoral',
-          }}
+          css={css`
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            font-style: normal;
+          `}
         >
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link
+            css={css`
+              text-decoration: none;
+            `}
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            css={css`
+              text-decoration: none;
+            `}
+            to="/contact"
+          >
+            Contact
+          </Link>
         </div>
-      </div>
+      </header>
       {children}
     </div>
   );
