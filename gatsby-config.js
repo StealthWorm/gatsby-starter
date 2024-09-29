@@ -15,6 +15,13 @@ module.exports = {
     description: `Gatsby description`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
     `gatsby-plugin-emotion`,
     {
       // gatsby possui o proprio plugin de tipografia, porém precisa ser configurado
@@ -24,5 +31,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-transformer-remark`,
   ],
 };

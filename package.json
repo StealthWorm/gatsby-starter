@@ -17,6 +17,8 @@
     "gatsby": "^5.13.7",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-plugin-typography": "^5.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-typography": "^0.16.23",
